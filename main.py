@@ -10,7 +10,7 @@ def plotData(datafile):
     with open(datafile, 'r', newline='') as csv_file:
         for row in csv.reader(csv_file,delimiter=' '):
             # The first column is the label
-            label = row[0]
+            label = str(int(float(row[0])))
 
             # The rest of columns are pixels
             # Note: the ending 'pixel' is actually a ''
@@ -41,7 +41,7 @@ def readData(datafile,flatten=True, discrete=False):
     with open(datafile, 'r') as csv_file:
         for row in csv.reader(csv_file, delimiter=' '):
             # The first column is the label
-            label = row[0]
+            label = str(int(float(row[0])))
 
             # The rest of columns are pixels
             pixels = [float(pixel) for pixel in row[1:] if pixel and (not pixel.isspace())]
