@@ -61,7 +61,7 @@ def readData(datafile,flatten=True, discrete=False):
 
 def applyLDA(training_data, training_labels,testing_data, testing_labels):
     lda_1 = LinearDiscriminantAnalysis(solver='lsqr', shrinkage='auto').fit(training_data, training_labels)
-    score=lda_1.score(training_data,training_labels)
+    score=lda_1.score(testing_data,testing_labels)
     print("LDA accuracy: ",score)
     return
 
