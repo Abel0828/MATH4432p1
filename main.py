@@ -5,6 +5,7 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 TEST_SET='zip.test'
 TRAIN_SET='zip.train'
+import matplotlib.pyplot as plt
 
 def plotData(datafile):
     with open(datafile, 'r', newline='') as csv_file:
@@ -67,8 +68,8 @@ def applyLDA(training_data, training_labels,testing_data, testing_labels):
 
 
 def applyQDA(training_data, training_labels, testing_data, testing_labels):
-    lda_1 = QuadraticDiscriminantAnalysis(store_covariance=True).fit(training_data, training_labels)
-    score=lda_1.score(testing_data,testing_labels)
+    qda_1 = QuadraticDiscriminantAnalysis(store_covariance=True).fit(training_data, training_labels)
+    score=qda_1.score(testing_data,testing_labels)
     print("QDA accuracy: ",score)
     return
 
@@ -84,6 +85,3 @@ if __name__=="__main__":
 
     applyLDA(training_data, training_labels,testing_data, testing_labels)
     applyQDA(training_data, training_labels, testing_data, testing_labels)
-
-
-
